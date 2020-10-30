@@ -1,0 +1,30 @@
+```{r, echo=FALSE}
+cat_loop_name <- "Anual" 
+```
+
+# `r cat_loop_name`
+\begin{columns}[T]
+    \begin{column}{0.25\textwidth} %first column
+    Mejores Clientes
+    \scriptsize
+```{r}
+  resumen_data_cliente %>%
+  select(cliente, wh, ganancias) %>%
+  head(n=10) %>%
+  kable(format = "latex", booktabs = TRUE) %>%
+  column_spec(1, width = "0.8in")
+```
+    \normalsize
+    \end{column}
+    \begin{column}{0.45\textwidth} %first column
+    Últimos 5 Meses
+    \scriptsize
+```{r}
+  resumen_data_armar %>%
+  tail(n=10) %>%
+  kable(format = "latex", booktabs = TRUE) %>%
+  column_spec(1, width = "0.5in")
+```
+    \normalsize
+    \end{column}
+\end{columns}

@@ -1,0 +1,17 @@
+```{r, echo=FALSE}
+cat_loop_name <- "Resumen" 
+```
+
+# `r cat_loop_name`
+\begin{columns}[T]
+    \begin{column}{0.90\textwidth} %first column
+    Resumen de Ventas Consolidado
+    \scriptsize
+```{r}
+  resumen_data %>%
+  kable(format = "latex", booktabs = TRUE) %>%
+  column_spec(1, width = "0.9in")
+```
+    \normalsize
+    \end{column}
+\end{columns}

@@ -1,0 +1,29 @@
+```{r, echo=FALSE}
+cat_loop_name <- paste("Resumen Mensual al", as.character(Sys.Date()), sep=" ") 
+```
+
+# `r cat_loop_name`
+\begin{columns}[T]
+    \begin{column}{0.25\textwidth} %first column
+    Mejores Clientes
+    \scriptsize
+```{r}
+  resumen_data_cliente_men %>%
+  select(cliente, wh, ganancias) %>%
+  head(n=10) %>%
+  kable(format = "latex", booktabs = TRUE) %>%
+  column_spec(1, width = "0.8in")
+```
+    \normalsize
+    \end{column}
+    \begin{column}{0.45\textwidth} %first column
+    Mes Corriente
+    \scriptsize
+```{r}
+  resumen_data_armar_men %>%
+  kable(format = "latex", booktabs = TRUE) %>%
+  column_spec(1, width = "0.5in")
+```
+    \normalsize
+    \end{column}
+\end{columns}
